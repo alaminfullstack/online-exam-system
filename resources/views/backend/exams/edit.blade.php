@@ -1,11 +1,11 @@
 @extends('frontend.layouts.app')
 
 @section('title')
-    banner edit
+    exam edit
 @endsection
 
 @section('description')
-    banner edit
+    exam edit
 @endsection
 
 @section('content')
@@ -15,10 +15,10 @@
                 <!-- Dynamic Table with Export Buttons -->
                 <div class="block block-rounded">
                     <div class="block-header border-bottom border-2">
-                        <h3 class="mb-0 py-1 fs-4 fw-bold">Banner edit</h3>
+                        <h3 class="mb-0 py-1 fs-4 fw-bold">Exam edit</h3>
                     </div>
                     <div class="block-content block-content-full">
-                        <form method="POST" action="{{ route('admin.banners.update', $banner->id) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.exams.update', $exam->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('put')
 
@@ -35,23 +35,59 @@
 
                             <div class="row">
                                 <div class="col-12 col-md-6 mb-4">
-                                    <label class="form-label">Link</label>
-                                    <input type="text" class="form-control" name="link" value="{{ $banner->link }}">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" class="form-control" name="title" value="{{ $exam->title }}">
                                 </div>
 
-
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label class="form-label">Exam Type</label>
+                                    <select name="exam_type" class="form-control">
+                                        <option value="mcq" @if($exam->status == 'mcq') selected @endif>MCQ</option>
+                                        <option value="mcqx" @if($exam->status == 'mcqx') selected @endif>MCQX</option>
+                                    </select>
+                                </div>
 
                                 <div class="col-12 col-md-6 mb-4">
-                                    <label class="form-label">Banner</label>
+                                    <label class="form-label">Duration</label>
+                                    <input type="number" class="form-control" name="duration" value="{{ $exam->duration }}">
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label class="form-label">Image</label>
                                     <input type="file" id="image" name="image" class="form-control">
                                     <div id="image-preview" class="mt-2">
-                                        <img src="{{ asset($banner->image) }}" />
+                                        <img src="{{ asset($exam->image) }}" class="card-img"/>
                                     </div>
                                 </div>
 
+
+                               
+
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label class="form-label">Total Mark</label>
+                                    <input type="number" class="form-control" name="total_mark" value="{{ $exam->total_mark }}">
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label class="form-label">Pass Mark</label>
+                                    <input type="number" class="form-control" name="pass_mark" value="{{ $exam->pass_mark }}">
+                                </div>
+
+                                <div class="col-12 col-md-6 mb-4">
+                                    <label class="form-label">Status</label>
+                                    <select name="status" class="form-control">
+                                        <option value="1" @if($exam->status == 1) selected @endif>Publish</option>
+                                        <option value="0" @if($exam->status == 0) selected @endif>Pending</option>
+                                    </select>
+                                </div>
+
+
+                               
                                 <div class="col-12 mb-4">
-                                    <label class="form-label">Text</label>
-                                    <textarea class="form-control" id="js-ckeditor" rows="6" name="text">{!! $banner->text !!}</textarea>
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" id="js-ckeditor" rows="6" name="description">
+                                        {!! $exam->description !!}
+                                    </textarea>
                                 </div>
 
 

@@ -46,11 +46,12 @@ class BannerController extends Controller
 
         // Retrieve the stored image path from the database
         $imagePath = $banner->image;
-
-        // Check if the path exists
-        if (file_exists($imagePath)) {
-            // Delete the file
-            unlink($imagePath);
+        if ($request->has('image')) {
+            // Check if the path exists
+            if (file_exists($imagePath)) {
+                // Delete the file
+                unlink($imagePath);
+            }
         }
 
         // Handle image upload or reuse existing image if not changed
@@ -104,7 +105,7 @@ class BannerController extends Controller
             $image->move($path, $filename);
 
             // Store the full path to the image in the database
-            return 'uploads/banners/'.$filename;
+            return 'uploads/banners/' . $filename;
         } else if ($banner) {
             // Reuse existing image path if not updating the image
             return $banner->image;
