@@ -44,3 +44,5 @@ Route::prefix('admin')->as('admin.')->group(function () {
 
 // online-exam
 Route::get('online-exam/{slug}', [FrontendController::class, 'online_exam'])->name('online_exam');
+Route::post('online-exam/{slug}', [FrontendController::class, 'online_exam_submit'])->name('online_exam_submit');
+Route::get('result/{slug}/examiner/{examiner}', [FrontendController::class, 'result'])->name('result');

@@ -57,7 +57,7 @@
                                 </div>
 
 
-                               
+
 
                                 <div class="col-12 col-md-6 mb-4">
                                     <label class="form-label">Total Mark</label>
@@ -78,7 +78,7 @@
                                 </div>
 
 
-                               
+
                                 <div class="col-12 mb-4">
                                     <label class="form-label">Description</label>
                                     <textarea class="form-control" id="js-ckeditor" rows="6" name="description"></textarea>
@@ -126,5 +126,7 @@
                 reader.readAsDataURL(e.target.files[0]);
             }
         });
+
+       
     </script>
 @endpush

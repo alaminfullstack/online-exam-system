@@ -21,4 +21,14 @@ class Exam extends Model
     {
         return $this->hasMany(Question::class, 'exam_id', 'id');
     }
+
+    /**
+     * Get all of the answers for the Exam
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function answers()
+    {
+        return $this->hasMany(Answer::class, 'exam_id', 'id');
+    }
 }

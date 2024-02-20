@@ -44,28 +44,33 @@
                                     </textarea>
                                 </div>
 
+                                <div class="col-12 mb-4">
+                                    <label class="form-label">Options</label>
+                                    <textarea class="form-control" rows="5" id="inputTextArea">{{ $question->option_1."\n"  }} {{ $question->option_2."\n" }} {{ $question->option_3."\n"  }} {{ $question->option_4 }} </textarea>
+                                </div>
+
 
                                 <div class="col-12 col-md-6 mb-4">
                                     <label class="form-label">Option 1</label>
-                                    <input type="text" class="form-control" name="option_1"
+                                    <input type="text" class="form-control" id="option_1" name="option_1"
                                         value="{{ $question->option_1 }}">
                                 </div>
 
                                 <div class="col-12 col-md-6 mb-4">
                                     <label class="form-label">Option 2</label>
-                                    <input type="text" class="form-control" name="option_2"
+                                    <input type="text" class="form-control" id="option_2" name="option_2"
                                         value="{{ $question->option_2 }}">
                                 </div>
 
                                 <div class="col-12 col-md-6 mb-4">
                                     <label class="form-label">Option 3</label>
-                                    <input type="text" class="form-control" name="option_3"
+                                    <input type="text" class="form-control" id="option_3" name="option_3"
                                         value="{{ $question->option_3 }}">
                                 </div>
 
                                 <div class="col-12 col-md-6 mb-4">
                                     <label class="form-label">Option 4</label>
-                                    <input type="text" class="form-control" name="option_4"
+                                    <input type="text" class="form-control" id="option_4" name="option_4"
                                         value="{{ $question->option_4 }}">
                                 </div>
 
@@ -104,6 +109,24 @@
     <script>
         $(document).ready(function() {
             $('.summernote').summernote();
+        });
+
+        $(document).on('input', '#inputTextArea', function() {
+            const optionsText = $(this).val(); // Get textarea content
+            const optionsArray = optionsText.split("\n"); // Split into lines
+
+            // Handle each line based on your desired auto-filling behavior
+            optionsArray.forEach((line, index) => {
+                if (line.trim() !== "") { // Check for blank lines
+                    
+                    // Fill input fields based on your desired order/logic
+                    if (index < 4) { // Adjust loop condition based on maximum allowed options
+                        $("#option_" + (index + 1)).val(line.trim());
+                    } else {
+                        // Handle excess options (error message, ignore, etc.)
+                    }
+                }
+            });
         });
     </script>
 @endpush
