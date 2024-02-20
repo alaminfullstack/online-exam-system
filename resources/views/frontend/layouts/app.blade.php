@@ -186,9 +186,9 @@
 
     <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
-        $('body').bind('cut copy', function(e) {
-            e.preventDefault();
-        });
+        // $('body').bind('cut copy', function(e) {
+        //     e.preventDefault();
+        // });
 
         // submit form script 
         $(document).on('submit', '.submit-form', function(e) {

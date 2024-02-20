@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\ExaminerController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\QuestionController;
 
 /*
@@ -40,3 +41,6 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
     });
 });
+
+// online-exam
+Route::get('online-exam/{slug}', [FrontendController::class, 'online_exam'])->name('online_exam');
