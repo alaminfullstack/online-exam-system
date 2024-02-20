@@ -35,6 +35,10 @@
             user-select: none;
         }
 
+        .alert{
+            z-index: 1052 !important;
+        }
+
         body {
             font-family: 'Merriweather', 'SolaimanLipi', sans-serif;
         }
@@ -95,6 +99,12 @@
                             <a class="nav-main-link" href="{{ route('admin.banners.index') }}">
                                 <i class="nav-main-link-icon fa fa-home"></i>
                                 <span class="nav-main-link-name">Banners</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{ route('admin.profile_setting') }}">
+                                <i class="nav-main-link-icon fa fa-home"></i>
+                                <span class="nav-main-link-name">Profile Update</span>
                             </a>
                         </li>
                         <li class="nav-main-item">

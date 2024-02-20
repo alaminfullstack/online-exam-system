@@ -25,6 +25,8 @@ Route::post('login', [AdminController::class, 'save_login'])->name('save_login')
 Route::prefix('admin')->as('admin.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/profile-setting', [AdminController::class, 'profile_setting'])->name('profile_setting');
+        Route::post('/update-profile', [AdminController::class, 'update_profile'])->name('update_profile');
 
         // exam
         Route::resource('exams', ExamController::class)->names('exams');

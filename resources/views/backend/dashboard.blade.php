@@ -49,7 +49,7 @@
                 <div class="block block-rounded block-link-shadow">
                     <div
                         class="block-content block-content-full d-flex flex-row-reverse align-items-center justify-content-between">
-                        <a href="" class="btn btn-sm btn-link text-danger">
+                        <a href="{{ route('admin.profile_setting') }}" class="btn btn-sm btn-link text-danger">
                             View all
                         </a>
                         <div class="me-3">
