@@ -36,7 +36,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::resource('questions', QuestionController::class)->names('questions');
 
         // examiners
-        Route::resource('examiners', ExaminerController::class)->names('examiners');
+        Route::get('examiners', [ExaminerController::class, 'index'])->name('examiners.index');
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
     });
