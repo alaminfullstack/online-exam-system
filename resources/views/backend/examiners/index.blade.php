@@ -15,7 +15,12 @@
                 <!-- Dynamic Table with Export Buttons -->
                 <div class="block block-rounded">
                     <div class="block-header">
-                        <h3 class="mb-0 py-1 fs-4 fw-bold">Examiner List</h3>
+                        <h3 class="mb-0 py-1 fs-4 fw-bold">
+                            <b>Examiner List</b> 
+                            @if($exam != null)
+                            <small> Of  ({{ $exam->title ?? null }})</small>
+                            @endif
+                        </h3>
                     </div>
                 </div>
                 <!-- END Dynamic Table with Export Buttons -->

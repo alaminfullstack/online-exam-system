@@ -40,6 +40,7 @@ class QuestionController extends Controller
             'option_3' => $data['option_3'],
             'option_4' => $data['option_4'],
             'correct_option' => $data['correct_option'],
+            'note' => $data['note'],
             'exam_id' => $data['exam_id'],
         ]);
 
@@ -61,6 +62,7 @@ class QuestionController extends Controller
             'option_3' => $data['option_3'],
             'option_4' => $data['option_4'],
             'correct_option' => $data['correct_option'],
+            'note' => $data['note'],
             'exam_id' => $data['exam_id'],
         ]);
 
@@ -83,6 +85,7 @@ class QuestionController extends Controller
             'option_4' => 'required',
             'correct_option' => 'required',
             'exam_id' => 'required',
+            'note' => 'nullable',
         ]);
     }
 }

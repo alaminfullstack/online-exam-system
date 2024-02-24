@@ -181,13 +181,13 @@
                                         <div class="col-12 mb-4">
                                             <label class="form-label">Name</label>
                                             <input type="text" class="form-control" id="name" name="name"
-                                                value="@if ($examiner != null) $examiner->name @endif" required>
+                                                value="@if ($examiner != null) {{ $examiner->name }} @endif" required>
                                         </div>
 
                                         <div class="col-12 mb-4">
                                             <label class="form-label">Mobile</label>
                                             <input type="text" class="form-control" id="mobile" name="mobile"
-                                                value="@if ($examiner != null) $examiner->mobile @endif"
+                                                value="@if ($examiner != null) {{ $examiner->mobile }} @endif"
                                                 required>
                                         </div>
 

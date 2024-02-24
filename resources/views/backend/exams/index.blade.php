@@ -45,6 +45,11 @@
                                             <i class="fa fa-fw fa-users me-1"></i> Question
                                         </a>
                                   
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.examiners.index', ['exam_id' => $exam->id]) }}">
+                                            <i class="fa fa-fw fa-users me-1"></i> Examiners
+                                        </a>
+
                                         <a class="dropdown-item" target="_blank"
                                             href="{{ route('online_exam', $exam->slug) }}">
                                             <i class="fa fa-fw fa-users me-1"></i> Preview

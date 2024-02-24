@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
 use App\Models\Examiner;
 use Illuminate\Http\Request;
 
 class ExaminerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $examiners = Examiner::latest()->paginate(); // Fetch all examiners from database
-        return view('backend.examiners.index', compact('examiners'));
+        $exam = null;
+        if ($request->has('exam_id')) {
+            $exam_id = $request->exam_id;
+            $exam = Exam::findOrFail($exam_id); 
+            $examiners = $exam->examiners()->paginate(); 
+        }else{
+            $examiners = Examiner::latest()->paginate(); 
+        }
+
+        // Fetch all examiners from database
+        return view('backend.examiners.index', compact('examiners', 'exam'));
     }
 }

@@ -37,11 +37,11 @@
                             <input type="hidden" name="exam_id" value="{{ $question->exam_id }}" />
 
                             <div class="row">
+                               
                                 <div class="col-12 mb-4">
                                     <label class="form-label">Question</label>
-                                    <textarea class="form-control summernote" id="js-ckeditor" rows="2" name="question_title">
-                                        {!! $question->question_title !!}
-                                    </textarea>
+                                    <input type="text" class="form-control" id="question_title" name="question_title"
+                                        value="{{ $question->question_title }}">
                                 </div>
 
                                 <div class="col-12 mb-4">
@@ -86,6 +86,14 @@
                                         <option value="option_4" @if ($question->correct_option == 'option_4') selected @endif>option_4
                                         </option>
                                     </select>
+                                </div>
+
+
+                                <div class="col-12 mb-4">
+                                    <label class="form-label">Note</label>
+                                    <textarea class="form-control summernote" id="js-ckeditor" rows="2" name="note">
+                                        {!! $question->note !!}
+                                    </textarea>
                                 </div>
 
                                 <div class="col-12">

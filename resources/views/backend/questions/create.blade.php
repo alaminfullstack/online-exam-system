@@ -34,9 +34,10 @@
                             <input type="hidden" name="exam_id" value="{{ $exam_id }}" />
 
                             <div class="row">
+                               
                                 <div class="col-12 mb-4">
                                     <label class="form-label">Question</label>
-                                    <textarea class="form-control summernote" id="js-ckeditor" rows="2" name="question_title"></textarea>
+                                    <input type="text" class="form-control" id="question_title" name="question_title" value="" required>
                                 </div>
 
                                 <div class="col-12 mb-4">
@@ -73,6 +74,11 @@
                                         <option value="option_3">option_3</option>
                                         <option value="option_4">option_4</option>
                                     </select>
+                                </div>
+
+                                <div class="col-12 mb-4">
+                                    <label class="form-label">Note</label>
+                                    <textarea class="form-control summernote" id="js-ckeditor" rows="2" name="note"></textarea>
                                 </div>
 
                                 <div class="col-12">
