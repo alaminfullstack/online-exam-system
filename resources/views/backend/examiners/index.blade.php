@@ -21,6 +21,8 @@
                             <small> Of  ({{ $exam->title ?? null }})</small>
                             @endif
                         </h3>
+
+                        <a href="{{ route('admin.examiners.export', ['exam_id' => $exam->id ?? null]) }}" class="btn btn-sm btn-danger">Export Excel</a>
                     </div>
                 </div>
                 <!-- END Dynamic Table with Export Buttons -->

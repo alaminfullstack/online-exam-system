@@ -39,6 +39,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
 
         // examiners
         Route::get('examiners', [ExaminerController::class, 'index'])->name('examiners.index');
+        Route::get('export-examiners', [ExaminerController::class, 'export'])->name('examiners.export');
 
         Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
     });
