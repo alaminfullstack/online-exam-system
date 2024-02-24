@@ -31,7 +31,8 @@ class ExaminerController extends Controller
         if ($request->has('exam_id')) {
             $exam_id = $request->exam_id;
             $exam = Exam::findOrFail($exam_id); 
-            return Excel::download(new ExaminerExport($exam_id), "exam_{$exam_id}_examiners.xlsx");
+            $slug = $exam->slug;
+            return Excel::download(new ExaminerExport($exam_id), "exam_({$slug})_examiners.xlsx");
         }
 
         return back()->with('error', 'Something went to wrong!');
